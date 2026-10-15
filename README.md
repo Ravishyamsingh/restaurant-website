@@ -32,19 +32,21 @@ Windows:
 git clone https://github.com/Ravishyamsingh/restaurant-website.git
 ```
 
-### Deploy to Netlify
+### Deploy to Cloudflare Pages
 
 This is a static website and requires no build command.
 
-1. Sign in to [Netlify](https://app.netlify.com/).
-2. Select **Add new project** → **Import an existing project**.
+1. Sign in to the [Cloudflare dashboard](https://dash.cloudflare.com/).
+2. Open **Workers & Pages** and select **Create application** → **Pages** → **Connect to Git**.
 3. Choose GitHub and select `Ravishyamsingh/restaurant-website`.
 4. Use these build settings:
+   - **Framework preset:** `None`
    - **Build command:** leave empty
-   - **Publish directory:** `.`
-5. Select **Deploy site**.
+   - **Build output directory:** `.`
+   - **Root directory:** `/` (repository root)
+5. Select **Save and Deploy**.
 
-The deployment settings are also stored in [`netlify.toml`](./netlify.toml), so future deploys will use the same configuration automatically.
+Cloudflare Pages will automatically redeploy whenever changes are pushed to the selected GitHub branch. The [`_headers`](./_headers) file configures security headers and long-term caching for static assets.
 
 ### Author
 
